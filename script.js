@@ -264,28 +264,7 @@ function debounce(func, wait) {
 }
 
 // Add subtle parallax effect to hero section
-function initParallaxEffect() {
-    const hero = document.querySelector('.hero');
-    
-    if (hero) {
-        const debouncedScroll = debounce(function() {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            
-            hero.style.transform = `translateY(${parallax}px)`;
-        }, 10);
-        
-        window.addEventListener('scroll', debouncedScroll);
-    }
-}
-
-// Initialize parallax effect
-document.addEventListener('DOMContentLoaded', function() {
-    // Only enable parallax on desktop devices
-    if (window.innerWidth > 768) {
-        initParallaxEffect();
-    }
-});
+// Parallax effect removed to fix layout issues
 
 // Handle window resize
 window.addEventListener('resize', debounce(function() {
