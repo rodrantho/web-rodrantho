@@ -1,0 +1,39 @@
+{
+  "name": "rodrantho-portfolio",
+  "version": "1.0.0",
+  "description": "Página web personal de rodrantho - Soluciones digitales a medida",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'No build process needed for static site'",
+    "deploy:vercel": "npx vercel --prod",
+    "lighthouse": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
+  },
+  "keywords": [
+    "portfolio",
+    "web-development",
+    "automation",
+    "consulting",
+    "rodrantho"
+  ],
+  "author": "rodrantho",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrantho/portfolio"
+  },
+  "homepage": "https://rodrantho.com",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
