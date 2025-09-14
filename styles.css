@@ -192,18 +192,7 @@ body::after {
     margin: 0 auto;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: #f5f5f7;
-    color: #86868b;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
+
 
 .hero-title {
     font-size: clamp(3rem, 6vw, 4.5rem);
@@ -213,6 +202,72 @@ body::after {
     letter-spacing: -0.025em;
     line-height: 1.05;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+}
+
+.keyword-link {
+    color: #007aff;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid transparent;
+}
+
+.keyword-link:hover {
+    color: #0056b3;
+    border-bottom-color: #007aff;
+}
+
+.keyword-link strong {
+    font-weight: 600;
+}
+
+.tooltip {
+    position: absolute;
+    background: #1d1d1f;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 320px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tooltip h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #007aff;
+}
+
+.tooltip p {
+    margin: 0;
+    color: #f5f5f7;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: #1d1d1f;
+    transform: rotate(45deg);
+    border-radius: 2px;
 }
 
 .hero-description {

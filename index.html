@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodrantho - Desarrollador Full Stack</title>
+    <title>Rodrantho - Implementacion</title>
     <meta name="description" content="Desarrollador Full Stack especializado en soluciones tecnológicas modernas y experiencias digitales excepcionales.">
     <meta name="keywords" content="desarrollador full stack, desarrollo web, tecnología, innovación">
     <meta name="author" content="Rodrantho">
@@ -52,7 +52,33 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Anthony Rodríguez</h1>
-                <p class="hero-description">Transformo ideas en soluciones reales usando <strong>herramientas no-code/low-code</strong> y <em>asistentes de IA</em>. Enfoque práctico para crear productos funcionales de manera eficiente.</p>
+                <p class="hero-description">Creo soluciones digitales con <a href="#" class="keyword-link" data-tooltip="no-code"><strong>no-code</strong></a>, <a href="#" class="keyword-link" data-tooltip="vibe-code"><strong>Vibe Code</strong></a> e <a href="#" class="keyword-link" data-tooltip="ia"><strong>IA</strong></a>. <a href="#" class="keyword-link" data-tooltip="desarrollo-rapido"><strong>Desarrollo rápido</strong></a> y <a href="#" class="keyword-link" data-tooltip="resultados-efectivos"><strong>resultados efectivos</strong></a>.</p>
+                
+                <!-- Tooltips -->
+                <div class="tooltip" id="tooltip-no-code">
+                    <h4>No-Code</h4>
+                    <p>Desarrollo sin programación tradicional. Crea aplicaciones completas usando interfaces visuales, reduciendo tiempo de desarrollo en 80% y costos significativamente.</p>
+                </div>
+                
+                <div class="tooltip" id="tooltip-vibe-code">
+                    <h4>Vibe Code</h4>
+                    <p>Metodología innovadora que combina intuición creativa con tecnología. Desarrollo que fluye naturalmente, adaptándose al ritmo y necesidades específicas de cada proyecto.</p>
+                </div>
+                
+                <div class="tooltip" id="tooltip-ia">
+                    <h4>Inteligencia Artificial</h4>
+                    <p>Automatización inteligente que potencia tus procesos. Desde chatbots hasta análisis predictivo, la IA optimiza operaciones y mejora la experiencia del usuario.</p>
+                </div>
+                
+                <div class="tooltip" id="tooltip-desarrollo-rapido">
+                    <h4>Desarrollo Rápido</h4>
+                    <p>Metodologías ágiles que entregan resultados en semanas, no meses. Prototipado rápido, iteraciones constantes y lanzamiento temprano para validar ideas rápidamente.</p>
+                </div>
+                
+                <div class="tooltip" id="tooltip-resultados-efectivos">
+                    <h4>Resultados Efectivos</h4>
+                    <p>Soluciones que generan impacto real en tu negocio. Medimos éxito por ROI, eficiencia operativa y satisfacción del usuario, no solo por funcionalidades.</p>
+                </div>
                 <div class="hero-tags">
                     <span class="hero-tag">No-Code/Low-Code</span>
                     <span class="hero-tag">IA Asistida</span>
@@ -74,133 +100,105 @@
             <p class="section-subtitle">Algunos de mis trabajos más destacados</p>
             <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">TaskFlow Manager</h3>
-                            <span class="project-language">React + Node.js</span>
-                        </div>
-                        <p class="project-description">Sistema de gestión de tareas y proyectos con dashboard interactivo, notificaciones en tiempo real y reportes automatizados.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">DataSync Automation</h3>
-                            <span class="project-language">Python + APIs</span>
-                        </div>
-                        <p class="project-description">Herramienta de sincronización automática entre sistemas ERP y CRM, con validación de datos y logs detallados.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Tablero Tickets Taller</h3>
+                            <p class="project-description">Sistema de gestión de tickets para taller con API REST y interfaz React. Solución completa para administrar órdenes de trabajo y seguimiento de reparaciones.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">API REST</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodranthonst/tablero-tickets-taller" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Código
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Analytics Dashboard</h3>
-                            <span class="project-language">Vue.js + D3.js</span>
-                        </div>
-                        <p class="project-description">Dashboard empresarial con visualizaciones interactivas, métricas KPI en tiempo real y exportación de reportes.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">Express</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Portfolio Responsive</h3>
-                            <span class="project-language">HTML + CSS + JS</span>
-                        </div>
-                        <p class="project-description">Sitio web personal con diseño minimalista, animaciones CSS y optimización para dispositivos móviles.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">Vanilla JS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Portfolio Personal</h3>
+                            <p class="project-description">Sitio web personal con diseño minimalista moderno, animaciones suaves y optimización para dispositivos móviles. Implementación clean y eficiente.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodranthonst/rodrantho" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Código
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">API Gateway Service</h3>
-                            <span class="project-language">Node.js + Docker</span>
-                        </div>
-                        <p class="project-description">Microservicio de gateway con autenticación JWT, rate limiting y balanceador de carga para APIs empresariales.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Redis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">DevOps Toolkit</h3>
-                            <span class="project-language">Python + Bash</span>
-                        </div>
-                        <p class="project-description">Conjunto de scripts para automatización de despliegues, monitoreo de servidores y gestión de configuraciones en entornos cloud.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Bash</span>
-                            <span class="tech-tag">AWS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Automatización No-Code</h3>
+                            <p class="project-description">Implementación de flujos de trabajo automatizados usando herramientas no-code para optimizar procesos empresariales y reducir tareas manuales.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Zapier</span>
+                                <span class="tech-tag">Airtable</span>
+                                <span class="tech-tag">APIs</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Ver más
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Sistema de Reservas Inteligente</h3>
-                            <span class="project-language">Low-Code + IA</span>
+                        <div class="project-content">
+                            <h3 class="project-title">Sistema de Gestión</h3>
+                            <p class="project-description">Aplicación web para gestión empresarial con dashboard interactivo y reportes automatizados.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodrantho" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Ver más
+                                </a>
+                            </div>
                         </div>
-                        <p class="project-description">Plataforma de reservas con IA para optimización automática de horarios, predicción de demanda y gestión inteligente de recursos.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Bubble</span>
-                            <span class="tech-tag">OpenAI API</span>
-                            <span class="tech-tag">Stripe</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">API REST Avanzada</h3>
+                            <p class="project-description">API robusta con autenticación JWT, documentación Swagger y arquitectura escalable.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodrantho" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Código
+                                </a>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rodrantho" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Dashboard Analytics</h3>
+                            <p class="project-description">Panel de control con visualizaciones interactivas y métricas en tiempo real.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Express</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rodranthonst" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Código
+                                </a>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -218,21 +216,21 @@
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="service-title">Desarrollo Web</h3>
-                    <p class="service-description">Aplicaciones web modernas y responsivas con las mejores tecnologías del mercado.</p>
+                    <p class="service-description">Aplicaciones web modernas y responsivas.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="service-title">Aplicaciones Móviles</h3>
-                    <p class="service-description">Desarrollo de aplicaciones móviles nativas y multiplataforma con experiencia de usuario excepcional.</p>
+                    <p class="service-description">Apps nativas y multiplataforma con UX excepcional.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
                     <h3 class="service-title">Soluciones Cloud</h3>
-                    <p class="service-description">Arquitecturas escalables en la nube para aplicaciones de alto rendimiento y disponibilidad.</p>
+                    <p class="service-description">Arquitecturas escalables y de alto rendimiento.</p>
                 </div>
             </div>
         </div>
@@ -242,11 +240,11 @@
     <section class="contact" id="contacto">
         <div class="container">
             <h2 class="section-title">¿Tienes un proyecto en mente?</h2>
-            <p class="section-subtitle">Transformemos tus ideas en soluciones tecnológicas que marquen la diferencia</p>
+            <p class="section-subtitle">Transformemos tus ideas en soluciones efectivas</p>
             <div class="contact-content">
                 <div class="contact-cta">
                     <h3 class="cta-title">Hablemos de tu próximo proyecto</h3>
-                    <p class="cta-description">Estoy disponible para colaborar en proyectos innovadores que requieran soluciones tecnológicas de calidad.</p>
+                    <p class="cta-description">Disponible para proyectos innovadores y soluciones de calidad.</p>
                     <div class="contact-buttons">
                         <a href="mailto:rodrantho@outlook.com" class="contact-btn primary">
                             <span class="btn-icon">📧</span>
@@ -258,29 +256,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:rodrantho@outlook.com">rodrantho@outlook.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">💼</span>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/anthony-rodriguez-o%E2%80%99neill-619b27166/" target="_blank">Anthony Rodríguez O'Neill</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">🔗</span>
-                            <div>
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/rodrantho" target="_blank">github.com/rodrantho</a>
-                            </div>
-                        </div>
-                    </div>
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Nombre" required>

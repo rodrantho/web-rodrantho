@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeaderScroll();
     initMobileMenu();
     initFormValidation();
+    initTooltips();
     initTypingAnimation();
 });
 
@@ -102,6 +103,40 @@ function initMobileMenu() {
             }
         });
     }
+}
+
+// Tooltip functionality
+function initTooltips() {
+    const keywordLinks = document.querySelectorAll('.keyword-link');
+    
+    keywordLinks.forEach(link => {
+        const tooltipId = link.getAttribute('data-tooltip');
+        const tooltip = document.getElementById(`tooltip-${tooltipId}`);
+        
+        if (tooltip) {
+            link.addEventListener('mouseenter', function(e) {
+                e.preventDefault();
+                
+                // Position tooltip
+                const rect = link.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = (rect.bottom + scrollTop + 10) + 'px';
+                
+                // Show tooltip
+                tooltip.classList.add('show');
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                tooltip.classList.remove('show');
+            });
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+        }
+    });
 }
 
 // Form validation and submission
