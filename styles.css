@@ -543,6 +543,21 @@ body::after {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
 }
 
+.service-title .keyword-link {
+    color: #1d1d1f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.service-title .keyword-link:hover {
+    color: #007aff;
+    border-bottom-color: #007aff;
+}
+
+.service-title .keyword-link strong {
+    font-weight: 600;
+}
+
 .service-description {
     color: #6e6e73;
     line-height: 1.6;
