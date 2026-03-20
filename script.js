@@ -1,412 +1,126 @@
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all effects
-    initSmoothScrolling();
-    initScrollReveal();
-    initHeaderScroll();
+document.addEventListener('DOMContentLoaded', function () {
+    initHeader();
     initMobileMenu();
-    initFormValidation();
-    initTooltips();
-    initTypingAnimation();
+    initScrollReveal();
+    initContactForm();
+    initYear();
 });
 
-// Smooth scrolling for navigation links
-function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+function initHeader() {
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+}
+
+function initMobileMenu() {
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    menu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 }
 
-// Scroll reveal animation
 function initScrollReveal() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-    
-    // Observe elements for scroll reveal
-    const elementsToReveal = document.querySelectorAll('.service-card, .project-card, .section-title, .section-subtitle');
-    elementsToReveal.forEach(element => {
-        element.classList.add('fade-in');
-        observer.observe(element);
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.service-card, .project-card, .section-header, .contact-link-item').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
     });
 }
 
-// Header scroll effect
-function initHeaderScroll() {
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+            showToast('Completá todos los campos requeridos.', 'error');
+            return;
         }
-        
-        lastScrollY = currentScrollY;
-    });
-}
 
-// Mobile menu toggle
-function initMobileMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Tooltip functionality
-function initTooltips() {
-    const keywordLinks = document.querySelectorAll('.keyword-link');
-    
-    keywordLinks.forEach(link => {
-        const tooltipId = link.getAttribute('data-tooltip');
-        const tooltip = document.getElementById(`tooltip-${tooltipId}`);
-        
-        if (tooltip) {
-            link.addEventListener('mouseenter', function(e) {
-                e.preventDefault();
-                
-                // Position tooltip
-                const rect = link.getBoundingClientRect();
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                tooltip.style.left = rect.left + 'px';
-                tooltip.style.top = (rect.bottom + scrollTop + 10) + 'px';
-                
-                // Show tooltip
-                tooltip.classList.add('show');
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                tooltip.classList.remove('show');
-            });
-            
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-            });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showToast('Email inválido.', 'error');
+            return;
         }
+
+        showToast('¡Mensaje enviado! Te contacto pronto.', 'success');
+        form.reset();
     });
 }
 
-// Form validation and submission
-function initFormValidation() {
-    const contactForm = document.querySelector('#contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                showNotification('Por favor, completa todos los campos.', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Por favor, ingresa un email válido.', 'error');
-                return;
-            }
-            
-            // Simulate form submission
-            showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
-            this.reset();
-        });
-    }
-}
+function showToast(message, type = 'info') {
+    document.querySelectorAll('.toast').forEach(t => t.remove());
 
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Show notification
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toast.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#0071e3' : type === 'error' ? '#ff3b30' : '#86868b'};
+        bottom: 24px;
+        right: 24px;
+        background: ${type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : '#6366f1'};
         color: white;
-        padding: 16px 20px;
+        padding: 14px 20px;
         border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        max-width: 400px;
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
         font-size: 14px;
         font-weight: 500;
+        font-family: inherit;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        z-index: 9999;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        max-width: 360px;
     `;
-    
-    const notificationContent = notification.querySelector('.notification-content');
-    notificationContent.style.cssText = `
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-    `;
-    
-    const closeButton = notification.querySelector('.notification-close');
-    closeButton.style.cssText = `
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        padding: 4px;
-        border-radius: 4px;
-        transition: background 0.2s ease;
-    `;
-    
-    closeButton.addEventListener('mouseenter', function() {
-        this.style.background = 'rgba(255, 255, 255, 0.2)';
+
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
     });
-    
-    closeButton.addEventListener('mouseleave', function() {
-        this.style.background = 'none';
-    });
-    
-    // Add to document
-    document.body.appendChild(notification);
-    
-    // Animate in
+
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 300);
-        }
-    }, 5000);
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
 }
 
-// Typing animation for hero title
-function initTypingAnimation() {
-    const heroTitle = document.querySelector('.hero-title');
-    
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let index = 0;
-        const typingSpeed = 100;
-        
-        function typeCharacter() {
-            if (index < originalText.length) {
-                heroTitle.textContent += originalText.charAt(index);
-                index++;
-                setTimeout(typeCharacter, typingSpeed);
-            }
-        }
-        
-        // Start typing animation after a short delay
-        setTimeout(typeCharacter, 500);
-    }
+function initYear() {
+    const el = document.getElementById('current-year');
+    if (el) el.textContent = new Date().getFullYear();
 }
-
-// Utility function to debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Add subtle parallax effect to hero section
-// Parallax effect removed to fix layout issues
-
-// Handle window resize
-window.addEventListener('resize', debounce(function() {
-    // Reinitialize parallax on resize if needed
-    if (window.innerWidth > 768) {
-        initParallaxEffect();
-    }
-}, 250));
-
-// Add loading state management
-function showLoading() {
-    const loadingHTML = `
-        <div class="loading" id="loading-overlay">
-            <div class="spinner"></div>
-            <span>Cargando...</span>
-        </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', loadingHTML);
-}
-
-function hideLoading() {
-    const loadingOverlay = document.getElementById('loading-overlay');
-    if (loadingOverlay) {
-        loadingOverlay.remove();
-    }
-}
-
-// Smooth page transitions
-function initPageTransitions() {
-    // Add fade-in effect to page load
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '1';
-    });
-}
-
-// Initialize page transitions
-document.addEventListener('DOMContentLoaded', initPageTransitions);
-
-// Add keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    // ESC key closes mobile menu
-    if (e.key === 'Escape') {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (navToggle && navMenu) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    }
-});
-
-// Performance optimization: Lazy load images
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Initialize lazy loading
-document.addEventListener('DOMContentLoaded', initLazyLoading);
-
-// Add focus management for accessibility
-function initFocusManagement() {
-    // Skip to main content link
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main';
-    skipLink.textContent = 'Saltar al contenido principal';
-    skipLink.className = 'skip-link';
-    skipLink.style.cssText = `
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: #0071e3;
-        color: white;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        z-index: 10001;
-        transition: top 0.3s ease;
-    `;
-    
-    skipLink.addEventListener('focus', function() {
-        this.style.top = '6px';
-    });
-    
-    skipLink.addEventListener('blur', function() {
-        this.style.top = '-40px';
-    });
-    
-    document.body.insertBefore(skipLink, document.body.firstChild);
-}
-
-// Initialize focus management
-document.addEventListener('DOMContentLoaded', initFocusManagement);
