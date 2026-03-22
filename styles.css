@@ -228,7 +228,7 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
@@ -880,7 +880,7 @@ body {
         left: -100%;
         width: 100%;
         height: calc(100vh - 60px);
-        height: calc(100dvh - 60px);
+        height: calc(100svh - 60px);
         background: rgba(8,8,16,0.97);
         flex-direction: column;
         justify-content: flex-start;
