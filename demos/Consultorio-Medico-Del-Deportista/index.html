@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultorio Médico del Deportista | Consultorio Médico Interdisciplinario</title>
+<meta name="description" content="Consultorio Médico del Deportista – Consultorio Médico Interdisciplinario en Uruguay. Atención profesional y personalizada. Agendá tu turno.">
+<link rel="canonical" href="https://medico-del-deportista.com.uy/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="rodrantho.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://medico-del-deportista.com.uy/">
+<meta property="og:title" content="Consultorio Médico del Deportista | Consultorio Médico Interdisciplinario">
+<meta property="og:description" content="Consultorio Médico del Deportista – Consultorio Médico Interdisciplinario en Uruguay.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1200&h=630&fit=crop&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalClinic",
+"name":"Consultorio Médico del Deportista","url":"https://medico-del-deportista.com.uy/","telephone":"",
+"address":{"@type":"PostalAddress","addressLocality":"Montevideo","addressCountry":"UY"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#7C3AED;--pd:#6D28D9;--pl:#F5F3FF;--ac:#EC4899;
+  --g:linear-gradient(135deg,#7C3AED,#3B0764);--dk:#1E0445;
+  --txt:#0F172A;--txt2:#64748B;--white:#fff;--bg:#F8FAFC;
+  --r:18px;--shadow:0 4px 24px rgba(0,0,0,.09);--shadow-lg:0 12px 48px rgba(0,0,0,.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--txt);background:var(--bg);line-height:1.65;overflow-x:hidden}
+
+/* ── FLOATING RODRANTHO WIDGET ── */
+.rw-float{
+  position:fixed;bottom:28px;right:28px;z-index:1200;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.rw-bubble{
+  background:#0F172A;color:#fff;
+  border-radius:16px 16px 4px 16px;
+  padding:10px 16px;font-size:.78rem;font-weight:600;
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+  white-space:nowrap;
+  animation:rwPop .4s cubic-bezier(.34,1.56,.64,1) 1.4s both;
+}
+@keyframes rwPop{from{opacity:0;transform:scale(.8) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.rw-bubble strong{color:#60A5FA}
+.rw-btn{
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#0A84FF,#0055CC);
+  color:#fff;text-decoration:none;
+  border-radius:50px;padding:13px 22px;
+  font-size:.88rem;font-weight:800;letter-spacing:-.01em;
+  box-shadow:0 8px 28px rgba(10,132,255,.45);
+  transition:transform .2s,box-shadow .2s;
+  animation:rwPop .4s cubic-bezier(.34,1.56,.64,1) 1s both;
+}
+.rw-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 14px 36px rgba(10,132,255,.55)}
+.rw-avatar{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;flex-shrink:0;
+}
+@media(max-width:480px){
+  .rw-float{bottom:16px;right:16px}
+  .rw-bubble{display:none}
+}
+
+/* ── ANIMATIONS ── */
+.animate{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.animate.visible{opacity:1;transform:translateY(0)}
+.animate-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+.animate-left.visible{opacity:1;transform:translateX(0)}
+.animate-right{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease}
+.animate-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}
+
+/* ── DEMO BAR ── */
+.demo-bar{
+  position:fixed;top:0;left:0;right:0;z-index:1100;
+  background:linear-gradient(90deg,#F59E0B,#EF4444);
+  color:#fff;font-size:.8rem;font-weight:700;
+  padding:0 20px;height:40px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;letter-spacing:.01em;
+  box-shadow:0 2px 12px rgba(239,68,68,.35);
+}
+.demo-bar-left{display:flex;align-items:center;gap:10px;flex:1}
+.demo-pill{
+  background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);
+  border-radius:20px;padding:2px 10px;font-size:.72rem;font-weight:900;
+  letter-spacing:.08em;flex-shrink:0;
+}
+.demo-msg{opacity:.95;font-size:.78rem;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-bar-right{flex-shrink:0;font-size:.75rem;opacity:.9}
+.demo-bar-right a{color:#fff;font-weight:800;text-decoration:underline}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:40px;left:0;right:0;z-index:999;
+  height:70px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:var(--shadow)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-dot{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--g);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+}
+.nav-name{font-weight:800;font-size:.98rem;color:var(--txt);line-height:1.2}
+.nav-sub{font-size:.7rem;color:var(--txt2);font-weight:400}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--txt2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--p)}
+.nav-cta{
+  background:var(--g);color:#fff;
+  padding:10px 22px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:.88rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+  transition:transform .2s,box-shadow .2s;
+  white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ── HERO (SPLIT) ── */
+.hero{
+  min-height:100vh;padding:130px 5% 0;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;overflow:hidden;
+  background:var(--bg);
+  position:relative;
+}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-bottom:0}}
+.hero-left{padding:40px 60px 60px 0;position:relative;z-index:2}
+@media(max-width:1100px){.hero-left{padding:40px 40px 60px 0}}
+@media(max-width:900px){.hero-left{padding:40px 0 40px;text-align:center}}
+
+.hero-available{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #E2E8F0;
+  border-radius:50px;padding:6px 14px;
+  font-size:.78rem;font-weight:600;color:var(--txt2);
+  margin-bottom:24px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:#22C55E;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+.hero h1{
+  font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;
+  color:var(--txt);line-height:1.05;letter-spacing:-.04em;
+  margin-bottom:12px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-tag{
+  font-size:1.1rem;font-weight:500;color:var(--txt2);
+  margin-bottom:28px;line-height:1.6;max-width:480px;
+}
+@media(max-width:900px){.hero-tag{margin:0 auto 28px}}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:900px){.hero-btns{justify-content:center}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:.95rem;
+  transition:all .25s ease;border:none;cursor:pointer;
+}
+.btn-primary{background:var(--g);color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.btn-ghost{background:transparent;color:var(--p);border:2px solid var(--p)}
+.btn-ghost:hover{background:var(--pl)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1daa56;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.btn-white{background:#fff;color:var(--p);box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+
+/* Hero image side */
+.hero-right{
+  position:relative;height:100vh;min-height:600px;
+  overflow:hidden;
+}
+@media(max-width:900px){
+  .hero-right{height:380px;min-height:280px;border-radius:0}
+}
+.hero-photo{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  transform:scale(1.04);
+  animation:kenBurns 14s ease-in-out infinite alternate;
+}
+@keyframes kenBurns{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.1) translate(-2%,-1%)}}
+.hero-photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right, var(--bg) 0%, transparent 30%);
+}
+@media(max-width:900px){
+  .hero-photo-overlay{background:linear-gradient(to bottom, transparent 60%, var(--bg) 100%)}
+}
+
+/* floating badge on hero photo */
+.hero-badge-float{
+  position:absolute;bottom:40px;left:40px;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:16px;padding:16px 20px;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:14px;
+  animation:floatY 4s ease-in-out infinite;
+  border:1px solid rgba(255,255,255,.8);
+}
+@media(max-width:900px){.hero-badge-float{display:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hbf-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--g);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+}
+.hbf-num{font-size:1.5rem;font-weight:900;color:var(--txt);line-height:1}
+.hbf-lbl{font-size:.72rem;color:var(--txt2);font-weight:500}
+
+/* second floating badge */
+.hero-badge-float2{
+  position:absolute;top:120px;left:-20px;
+  background:var(--g);
+  border-radius:14px;padding:14px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+  display:flex;align-items:center;gap:10px;
+  animation:floatY 5s ease-in-out infinite .5s;
+  color:#fff;
+}
+@media(max-width:900px){.hero-badge-float2{display:none}}
+.hbf2-num{font-size:1.4rem;font-weight:900;line-height:1}
+.hbf2-lbl{font-size:.7rem;opacity:.85}
+
+/* ── TRUST BAR ── */
+.trust{background:#fff;padding:20px 5%;border-bottom:1px solid #F1F5F9}
+.trust-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:.83rem;font-weight:600;color:var(--txt2);
+}
+.trust-check{color:var(--p);font-size:1rem}
+
+/* ── SECTIONS ── */
+.sec{padding:88px 5%}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-header{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-tag{
+  display:inline-block;background:var(--pl);color:var(--p);
+  padding:5px 16px;border-radius:50px;font-size:.75rem;
+  font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;
+}
+.sec-header h2{
+  font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;
+  letter-spacing:-.035em;line-height:1.15;margin-bottom:14px;
+}
+.sec-header p{color:var(--txt2);font-size:1rem;line-height:1.75}
+
+/* ── SERVICES ── */
+.srv-sec{background:var(--pl)}
+.srv-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;
+}
+.srv-card{
+  background:#fff;border-radius:var(--r);padding:28px;
+  box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+  border-top:3px solid var(--p);
+  position:relative;overflow:hidden;
+}
+.srv-card::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:60px;height:60px;
+  background:var(--pl);
+  clip-path:polygon(100% 0,100% 100%,0 100%);
+}
+.srv-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.srv-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.srv-ico{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--pl);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  flex-shrink:0;
+}
+.srv-card h3{font-size:1rem;font-weight:800;color:var(--txt)}
+.srv-card p{font-size:.87rem;color:var(--txt2);line-height:1.7}
+
+/* ── ABOUT (SPLIT) ── */
+.about-sec{background:#fff}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  max-width:1100px;margin:0 auto;
+}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about-img-wrap{position:relative;border-radius:24px;overflow:hidden;}
+.about-img-wrap img{width:100%;height:500px;object-fit:cover;display:block;transition:transform .6s ease}
+.about-img-wrap:hover img{transform:scale(1.03)}
+@media(max-width:900px){.about-img-wrap img{height:300px}}
+.about-img-badge{
+  position:absolute;bottom:24px;right:24px;
+  background:#fff;border-radius:14px;padding:14px 18px;
+  box-shadow:var(--shadow-lg);text-align:center;
+}
+.aib-num{font-size:2rem;font-weight:900;color:var(--p);line-height:1}
+.aib-lbl{font-size:.72rem;color:var(--txt2);font-weight:500}
+
+.about-text .sec-tag{margin-bottom:16px}
+.about-text h2{
+  font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:900;
+  letter-spacing:-.03em;line-height:1.2;margin-bottom:18px;
+}
+.about-text p{color:var(--txt2);line-height:1.8;margin-bottom:16px;font-size:.97rem}
+.about-checks{list-style:none;margin-bottom:28px}
+.about-checks li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.9rem;color:var(--txt2);margin-bottom:10px;font-weight:500;
+}
+.about-checks li::before{
+  content:'✓';color:var(--p);font-weight:900;font-size:1rem;margin-top:1px;flex-shrink:0;
+}
+
+/* ── GALLERY ── */
+.gal-sec{background:var(--bg);padding:72px 5%}
+.gal-header{text-align:center;margin-bottom:36px}
+.gal-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:16px;
+}
+@media(max-width:900px){.gal-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.gal-grid{grid-template-columns:1fr}}
+.gal-item{border-radius:16px;overflow:hidden;aspect-ratio:1;}
+.gal-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;display:block;
+}
+.gal-item:hover img{transform:scale(1.07)}
+
+/* ── STATS ── */
+.stats-sec{background:var(--g);padding:64px 5%}
+.stats-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px;text-align:center;
+}
+.stat-num{font-size:3rem;font-weight:900;color:#fff;line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:.88rem;color:rgba(255,255,255,.8);font-weight:500;letter-spacing:.02em}
+
+/* ── TESTIMONIALS ── */
+.test-sec{background:#fff}
+.test-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;
+}
+.t-card{
+  background:var(--bg);border-radius:var(--r);padding:28px;
+  border:1px solid #E2E8F0;
+  transition:transform .3s,border-color .3s;
+}
+.t-card:hover{transform:translateY(-4px);border-color:var(--p)}
+.t-stars{color:#F59E0B;font-size:1rem;margin-bottom:14px;letter-spacing:2px}
+.t-quote{font-size:.93rem;color:var(--txt2);line-height:1.75;font-style:italic;margin-bottom:18px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-av{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--g);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:1rem;
+  flex-shrink:0;
+}
+.t-name{font-weight:700;font-size:.88rem;color:var(--txt)}
+.t-role{font-size:.75rem;color:var(--txt2)}
+
+/* ── CTA ── */
+.cta-sec{
+  background:var(--dk);
+  padding:88px 5%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-sec::before{
+  content:'';position:absolute;
+  top:-200px;left:-100px;width:500px;height:500px;
+  background:radial-gradient(circle,#7C3AED22 0%,transparent 60%);
+}
+.cta-sec::after{
+  content:'';position:absolute;
+  bottom:-150px;right:-80px;width:400px;height:400px;
+  background:radial-gradient(circle,#7C3AED18 0%,transparent 60%);
+}
+.cta-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
+.cta-sec h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:#fff;margin-bottom:14px;letter-spacing:-.03em}
+.cta-sec p{color:rgba(255,255,255,.7);margin-bottom:36px;font-size:1rem;line-height:1.75}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── CONTACT ── */
+.contact-sec{background:var(--bg);padding:88px 5%}
+.contact-grid{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;
+}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{background:#fff;border-radius:var(--r);padding:36px;box-shadow:var(--shadow)}
+.contact-card h3{font-size:1.2rem;font-weight:800;margin-bottom:28px}
+.ci{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.ci-ico{
+  width:44px;height:44px;min-width:44px;border-radius:11px;
+  background:var(--pl);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.ci-lbl{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txt2);font-weight:700;margin-bottom:2px}
+.ci div a,.ci div span{font-size:.93rem;font-weight:600;color:var(--txt);text-decoration:none}
+.ci div a:hover{color:var(--p)}
+.appt-card{
+  background:var(--g);border-radius:var(--r);padding:36px;color:#fff;
+}
+.appt-card h3{font-size:1.2rem;font-weight:800;margin-bottom:14px}
+.appt-card p{opacity:.85;font-size:.92rem;line-height:1.65;margin-bottom:24px}
+.hours{border:1px solid rgba(255,255,255,.15);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.hour-row{
+  display:flex;justify-content:space-between;
+  padding:11px 16px;font-size:.87rem;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hour-row:last-child{border-bottom:none}
+
+/* ── FOOTER ── */
+footer{background:#0B1120;padding:52px 5% 32px}
+.footer-top{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.footer-brand .footer-name{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:4px}
+.footer-brand .footer-tipo{font-size:.82rem;color:var(--p);font-weight:500}
+.footer-contact a,.footer-contact span{
+  display:block;color:rgba(255,255,255,.5);text-decoration:none;font-size:.83rem;margin-bottom:6px;
+  transition:color .2s;
+}
+.footer-contact a:hover{color:#fff}
+.footer-bottom{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  padding-top:28px;
+}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.3)}
+.rodrantho-credit{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;padding:6px 14px;text-decoration:none;
+  transition:border-color .2s;
+}
+.rodrantho-credit:hover{border-color:rgba(255,255,255,.2)}
+.rodrantho-credit span{font-size:.7rem;color:rgba(255,255,255,.35);font-weight:400}
+.rodrantho-credit strong{font-size:.92rem;font-weight:900;color:#fff;letter-spacing:-.01em}
+
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .hero-btns,.cta-btns{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .trust{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- DEMO BAR -->
+<div class="demo-bar">
+  <div class="demo-bar-left">
+    <span class="demo-pill">DEMO</span>
+    <span class="demo-msg">Esta es una propuesta de sitio web preparada especialmente para <strong>Consultorio Médico del Deportista</strong> &nbsp;·&nbsp; No es el sitio final</span>
+  </div>
+  <div class="demo-bar-right">desarrollado por <a href="https://rodrantho.com" target="_blank">rodrantho.</a></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-dot">🩺</div>
+    <div>
+      <div class="nav-name">Consultorio Médico del Deportista</div>
+      <div class="nav-sub">Consultorio Médico Interdisciplinario</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Pedir turno</a>
+</nav>
+
+<!-- HERO SPLIT -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-available animate">
+      <span class="hero-dot"></span>
+      Aceptando nuevos pacientes
+    </div>
+    <h1 class="animate delay-1">
+      Consultorio Médico del Deportista<br><em>Tu salud en manos expertas</em>
+    </h1>
+    <p class="hero-tag animate delay-2">Atención médica integral y personalizada con profesionales comprometidos con tu bienestar.</p>
+    <div class="hero-btns animate delay-3">
+      <a href="#contacto" class="btn btn-primary">📅 Pedir turno</a>
+      <a href="https://www.facebook.com" class="btn btn-wa" target="_blank">📘 Facebook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=900&h=1000&fit=crop&crop=center&q=80&auto=format" alt="Consultorio Médico del Deportista" loading="eager">
+    <div class="hero-photo-overlay"></div>
+    <div class="hero-badge-float">
+      <div class="hbf-icon">⭐</div>
+      <div>
+        <div class="hbf-num">5.0</div>
+        <div class="hbf-lbl">Calificación</div>
+      </div>
+    </div>
+    <div class="hero-badge-float2">
+      <div>
+        <div class="hbf2-num">+500</div>
+        <div class="hbf2-lbl">Pacientes atendidos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-check">✓</span> Atención personalizada</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Profesionales certificados</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Tecnología de vanguardia</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Horarios flexibles</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Múltiples medios de pago</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec srv-sec" id="servicios">
+  <div class="sec-inner">
+    <div class="sec-header animate">
+      <div class="sec-tag">Servicios</div>
+      <h2>Todo lo que necesitás en un solo lugar</h2>
+      <p>Tratamientos de alta calidad con tecnología moderna y un equipo comprometido con tu bienestar.</p>
+    </div>
+    <div class="srv-grid">
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">🩺</div>
+            <h3>Medicina General</h3>
+          </div>
+          <p>Consultas integrales, diagnóstico personalizado y seguimiento continuo de tu estado de salud.</p>
+        </div>
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">💊</div>
+            <h3>Medicina Preventiva</h3>
+          </div>
+          <p>Chequeos completos y programas de prevención para mantenerte saludable a largo plazo.</p>
+        </div>
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">🔬</div>
+            <h3>Diagnóstico Clínico</h3>
+          </div>
+          <p>Estudios diagnósticos precisos con equipamiento de última generación y resultados rápidos.</p>
+        </div>
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">❤️</div>
+            <h3>Cardiología</h3>
+          </div>
+          <p>Control cardiovascular con electrocardiograma, ecocardiograma y monitoreo Holter.</p>
+        </div>
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">🌿</div>
+            <h3>Nutrición y Bienestar</h3>
+          </div>
+          <p>Planes alimenticios personalizados para mejorar tu calidad de vida y alcanzar tus metas.</p>
+        </div>
+        <div class="srv-card animate">
+          <div class="srv-top">
+            <div class="srv-ico">🏥</div>
+            <h3>Atención Integral</h3>
+          </div>
+          <p>Equipo multidisciplinario coordinado para brindarte el cuidado más completo en un solo lugar.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT WITH PHOTO -->
+<section class="sec about-sec" id="nosotros">
+  <div class="about-grid">
+    <div class="about-img-wrap animate-left">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=700&h=900&fit=crop&crop=center&q=80&auto=format" alt="Nuestro consultorio" loading="lazy">
+      <div class="about-img-badge">
+        <div class="aib-num">10+</div>
+        <div class="aib-lbl">Años de<br>experiencia</div>
+      </div>
+    </div>
+    <div class="about-text animate-right">
+      <div class="sec-tag">Nosotros</div>
+      <h2>Comprometidos con tu salud integral</h2>
+      <p>En <strong>Consultorio Médico del Deportista</strong> creemos que la salud es lo más valioso. Por eso contamos con un equipo de profesionales altamente calificados, equipamiento moderno y un enfoque centrado en vos y tu familia.</p>
+      <ul class="about-checks">
+        <li>Equipo profesional con formación continua</li>
+        <li>Equipamiento de última generación</li>
+        <li>Ambiente cómodo y seguro para toda la familia</li>
+        <li>Presupuesto sin compromiso en la primera consulta</li>
+      </ul>
+      <a href="#contacto" class="btn btn-primary">Conocé más →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gal-sec">
+  <div class="gal-header animate">
+    <div class="sec-tag">Galería</div>
+    <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:900;letter-spacing:-.03em;margin-top:8px">Nuestras instalaciones</h2>
+  </div>
+  <div class="gal-grid"><div class="gal-item animate"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=500&fit=crop&crop=center&q=80&auto=format" alt="Galería Consultorio Médico del Deportista" loading="lazy"></div><div class="gal-item animate"><img src="https://images.unsplash.com/photo-1631217871099-88310a909a32?w=600&h=500&fit=crop&crop=center&q=80&auto=format" alt="Galería Consultorio Médico del Deportista" loading="lazy"></div><div class="gal-item animate"><img src="https://images.unsplash.com/photo-1698795635777-be9983d39605?w=600&h=500&fit=crop&crop=center&q=80&auto=format" alt="Galería Consultorio Médico del Deportista" loading="lazy"></div><div class="gal-item animate"><img src="https://images.unsplash.com/photo-1631217872822-1c2546d6b864?w=600&h=500&fit=crop&crop=center&q=80&auto=format" alt="Galería Consultorio Médico del Deportista" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-sec">
+  <div class="stats-grid">
+    <div class="animate">
+      <div class="stat-num" data-target="10" data-suffix="+">0+</div>
+      <div class="stat-lbl">Años de experiencia</div>
+    </div>
+    <div class="animate delay-1">
+      <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+      <div class="stat-lbl">Pacientes atendidos</div>
+    </div>
+    <div class="animate delay-2">
+      <div class="stat-num" data-target="98" data-suffix="%">0%</div>
+      <div class="stat-lbl">Satisfacción de pacientes</div>
+    </div>
+    <div class="animate delay-3">
+      <div class="stat-num" data-target="6" data-suffix="">0</div>
+      <div class="stat-lbl">Especialidades disponibles</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="sec test-sec">
+  <div class="sec-inner">
+    <div class="sec-header animate">
+      <div class="sec-tag">Testimonios</div>
+      <h2>Lo que dicen nuestros pacientes</h2>
+      <p>La satisfacción de quienes nos eligen es nuestra mayor motivación para seguir mejorando.</p>
+    </div>
+    <div class="test-grid">
+      <div class="t-card animate"><div class="t-stars">★★★★★</div><p class="t-quote">"Excelente atención desde el primer momento. Muy profesionales y el resultado fue increíble. ¡Ya lo recomendé a toda mi familia!"</p><div class="t-author"><div class="t-av">M</div><div><div class="t-name">M. González</div><div class="t-role">Paciente desde 2022</div></div></div></div>
+      <div class="t-card animate delay-1"><div class="t-stars">★★★★★</div><p class="t-quote">"El mejor consultorio al que fui en mi vida. Calidad, limpieza y un equipo muy amable. Salí más que contento con el tratamiento."</p><div class="t-author"><div class="t-av">A</div><div><div class="t-name">A. Rodríguez</div><div class="t-role">Paciente desde 2021</div></div></div></div>
+      <div class="t-card animate delay-2"><div class="t-stars">★★★★★</div><p class="t-quote">"Fui con mucho miedo y me trataron con total tranquilidad y paciencia. El resultado superó mis expectativas. 100% recomendable."</p><div class="t-author"><div class="t-av">L</div><div><div class="t-name">L. Martínez</div><div class="t-role">Paciente desde 2023</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <h2 class="animate">Comenzá hoy el camino hacia una mejor salud</h2>
+    <p class="animate delay-1">Agendá tu consulta y dejá tu salud en manos de profesionales comprometidos.</p>
+    <div class="cta-btns animate delay-2">
+      <a href="#contacto" class="btn btn-white">📅 Reservar turno</a>
+      <a href="https://www.facebook.com" class="btn btn-wa" target="_blank">📘 Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contacto">
+  <div class="sec-inner">
+    <div class="sec-header animate">
+      <div class="sec-tag">Contacto</div>
+      <h2>Estamos para ayudarte</h2>
+      <p>Contactanos hoy y te respondemos a la brevedad para coordinar tu primera consulta.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card animate-left">
+        <h3>📬 Información de contacto</h3>
+        <div class="ci"><div class="ci-ico">📘</div><div><span class="ci-lbl">Facebook</span><a href="https://www.facebook.com" target="_blank">Seguinos en Facebook</a></div></div>
+        <div class="ci"><div class="ci-ico">📍</div><div><span class="ci-lbl">Dirección</span><span>Montevideo, Uruguay</span></div></div>
+        <div class="ci"><div class="ci-ico">🌍</div><div><span class="ci-lbl">País</span><span>Uruguay</span></div></div>
+        <div class="ci"><div class="ci-ico">🌐</div><div><span class="ci-lbl">Sitio web</span><span>medico-del-deportista.com.uy</span></div></div>
+      </div>
+      <div class="appt-card animate-right">
+        <h3>📅 Agendá tu turno</h3>
+        <p>Estamos disponibles en los siguientes horarios. ¡Contactanos y te respondemos enseguida!</p>
+        <div class="hours">
+          <div class="hour-row"><span>Lunes – Viernes</span><span>9:00 – 19:00</span></div>
+          <div class="hour-row"><span>Sábados</span><span>9:00 – 13:00</span></div>
+          <div class="hour-row"><span>Domingos</span><span>Cerrado</span></div>
+        </div>
+        <a href="https://www.facebook.com" class="btn btn-wa" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-name">Consultorio Médico del Deportista</div>
+      <div class="footer-tipo">Consultorio Médico Interdisciplinario · Uruguay</div>
+    </div>
+    <div class="footer-contact">
+      
+      <a href="https://www.facebook.com" target="_blank">Seguinos en redes</a>
+      
+      <span>Montevideo, Uruguay</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Consultorio Médico del Deportista. Todos los derechos reservados.</div>
+    <a href="https://rodrantho.com" target="_blank" class="rodrantho-credit">
+      <span>desarrollado por</span>
+      <strong>rodrantho.</strong>
+    </a>
+  </div>
+</footer>
+
+<script>
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // Trigger counter if applicable
+      const counter = e.target.querySelector('.stat-num[data-target]') ||
+                      (e.target.classList.contains('stat-num') ? e.target : null);
+      if (counter) animateCounter(counter);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+
+document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => observer.observe(el));
+
+// Observe stats separately for counters
+document.querySelectorAll('.stats-sec .animate').forEach(el => {
+  const counter = el.querySelector('.stat-num[data-target]');
+  if (counter) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          el.classList.add('visible');
+          animateCounter(counter);
+          counterObserver.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.5});
+    counterObserver.observe(el);
+  }
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function update(ts) {
+    const p = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+<!-- FLOATING RODRANTHO WIDGET -->
+<div class="rw-float">
+  <div class="rw-bubble">¿Querés un sitio así para tu negocio? <strong>rodrantho.</strong></div>
+  <a href="https://rodrantho.com" target="_blank" class="rw-btn">
+    <div class="rw-avatar">✦</div>
+    Visitá rodrantho.com
+  </a>
+</div>
+
+</body>
+</html>
