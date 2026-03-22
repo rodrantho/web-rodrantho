@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://dental-advance.com.uy/">
 <meta property="og:title" content="Dental Advance | Consultorio odontológico">
 <meta property="og:description" content="Dental Advance – Consultorio odontológico en Uruguay.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=1200&h=630&fit=crop&q=80">
+<meta property="og:image" content="https://images.unsplash.com/photo-1588776814610-a14d0dfc6f9e?w=1200&h=630&fit=crop&q=80">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Dentist",
@@ -24,8 +24,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --p:#0F766E;--pd:#0D5F58;--pl:#F0FDFA;--ac:#6366F1;
-  --g:linear-gradient(135deg,#0F766E,#0B4A44);--dk:#052824;
+  --p:#7C3AED;--pd:#6D28D9;--pl:#F5F3FF;--ac:#EC4899;
+  --g:linear-gradient(135deg,#7C3AED,#3B0764);--dk:#1E0445;
   --txt:#0F172A;--txt2:#64748B;--white:#fff;--bg:#F8FAFC;
   --r:18px;--shadow:0 4px 24px rgba(0,0,0,.09);--shadow-lg:0 12px 48px rgba(0,0,0,.15);
 }
@@ -132,6 +132,7 @@ nav.scrolled{box-shadow:var(--shadow)}
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 @media(max-width:768px){.nav-links{display:none}}
+@media(max-width:480px){.nav-cta{display:none}}
 
 /* ── HERO (SPLIT) ── */
 .hero{
@@ -192,7 +193,7 @@ nav.scrolled{box-shadow:var(--shadow)}
 /* Hero image side */
 .hero-right{
   position:relative;height:100vh;min-height:600px;
-  overflow:hidden;
+  overflow:hidden;background:var(--g);
 }
 @media(max-width:900px){
   .hero-right{height:380px;min-height:280px;border-radius:0}
@@ -397,12 +398,12 @@ nav.scrolled{box-shadow:var(--shadow)}
 .cta-sec::before{
   content:'';position:absolute;
   top:-200px;left:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,#0F766E22 0%,transparent 60%);
+  background:radial-gradient(circle,#7C3AED22 0%,transparent 60%);
 }
 .cta-sec::after{
   content:'';position:absolute;
   bottom:-150px;right:-80px;width:400px;height:400px;
-  background:radial-gradient(circle,#0F766E18 0%,transparent 60%);
+  background:radial-gradient(circle,#7C3AED18 0%,transparent 60%);
 }
 .cta-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
 .cta-sec h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:#fff;margin-bottom:14px;letter-spacing:-.03em}
@@ -470,11 +471,39 @@ footer{background:#0B1120;padding:52px 5% 32px}
 .rodrantho-credit span{font-size:.7rem;color:rgba(255,255,255,.35);font-weight:400}
 .rodrantho-credit strong{font-size:.92rem;font-weight:900;color:#fff;letter-spacing:-.01em}
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE MOBILE ── */
+@media(max-width:768px){
+  .demo-bar-right{display:none}
+  .sec{padding:60px 5%}
+  .gal-sec{padding:52px 5%}
+  .stats-sec{padding:48px 5%}
+  .contact-sec{padding:60px 5%}
+  .cta-sec{padding:64px 5%}
+}
+@media(max-width:600px){
+  .demo-bar{height:36px;font-size:.74rem}
+  .demo-pill{font-size:.66rem;padding:2px 8px}
+  .demo-msg{font-size:.72rem}
+  nav{top:36px;height:60px}
+  .hero{padding-top:116px}
+  .nav-cta{padding:8px 16px;font-size:.8rem}
+  .sec-header h2{font-size:1.6rem}
+  .stat-num{font-size:2.2rem}
+  .about-text h2{font-size:1.6rem}
+}
 @media(max-width:480px){
   .hero-btns,.cta-btns{flex-direction:column;align-items:stretch}
-  .btn{justify-content:center}
+  .btn{justify-content:center;padding:13px 20px}
   .trust{display:none}
+  .hero-right{height:280px;min-height:220px}
+  .srv-grid,.test-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .contact-card,.appt-card{padding:24px}
+  .footer-top{flex-direction:column;gap:20px;padding-bottom:24px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+  .rw-btn{padding:11px 18px;font-size:.82rem}
+  .hero h1{font-size:2rem}
+  .hero-tag{font-size:.92rem}
 }
 </style>
 </head>
@@ -523,7 +552,7 @@ footer{background:#0B1120;padding:52px 5% 32px}
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-photo" src="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=900&h=1000&fit=crop&crop=center&q=80&auto=format" alt="Dental Advance" loading="eager">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1588776814610-a14d0dfc6f9e?w=900&h=1000&fit=crop&crop=center&q=80&auto=format" alt="Dental Advance" loading="eager" onerror="this.style.opacity='0'">
     <div class="hero-photo-overlay"></div>
     <div class="hero-badge-float">
       <div class="hbf-icon">⭐</div>
@@ -760,6 +789,14 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
 
 document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => observer.observe(el));
+
+// ── INITIAL VIEWPORT TRIGGER (fix for elements visible on load) ──
+setTimeout(() => {
+  document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+  });
+}, 60);
 
 // Observe stats separately for counters
 document.querySelectorAll('.stats-sec .animate').forEach(el => {
