@@ -577,6 +577,23 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
 }
 
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-gh-link {
+    color: #64748b;
+    font-size: 16px;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.project-gh-link:hover {
+    color: #e2e8f0;
+}
+
 .project-title {
     font-size: 1.2rem;
     font-weight: 650;
