@@ -1188,6 +1188,420 @@ body {
     }
 }
 
+/* === Product Spotlight: Apa! Agenda === */
+.product-spotlight {
+    padding: 120px 0;
+    position: relative;
+    background: linear-gradient(180deg, #080810 0%, #0a0a18 50%, #080810 100%);
+}
+
+.product-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(99,102,241,0.3), transparent);
+}
+
+.product-spotlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(99,102,241,0.3), transparent);
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+}
+
+.spotlight-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #22c55e;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.25);
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.spotlight-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.spotlight-subtitle {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 36px;
+}
+
+.spotlight-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.spotlight-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.spotlight-feat-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(99,102,241,0.12);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.spotlight-features li div strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 2px;
+}
+
+.spotlight-features li div span {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.spotlight-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+}
+
+.spotlight-stack span {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #64748b;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.spotlight-stack span:hover {
+    background: rgba(99,102,241,0.1);
+    color: #a5b4fc;
+    border-color: rgba(99,102,241,0.3);
+}
+
+.spotlight-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* App Mockup */
+.spotlight-visual {
+    position: relative;
+}
+
+.spotlight-visual::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(ellipse at center, rgba(99,102,241,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.app-mockup {
+    position: relative;
+    z-index: 1;
+    background: #0f0f1e;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.1);
+}
+
+.app-mockup-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.mockup-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.mockup-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+}
+
+.mockup-dots span:nth-child(1) { background: #ef4444; opacity: 0.7; }
+.mockup-dots span:nth-child(2) { background: #f59e0b; opacity: 0.7; }
+.mockup-dots span:nth-child(3) { background: #22c55e; opacity: 0.7; }
+
+.mockup-url {
+    font-size: 11px;
+    color: #475569;
+    background: rgba(255,255,255,0.04);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+    font-family: monospace;
+}
+
+.app-mockup-body {
+    display: flex;
+    height: 340px;
+}
+
+.mockup-sidebar {
+    width: 140px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.02);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mockup-logo {
+    font-size: 12px;
+    font-weight: 700;
+    color: #818cf8;
+    padding: 0 16px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 8px;
+}
+
+.mockup-nav {
+    font-size: 11.5px;
+    color: #475569;
+    padding: 7px 16px;
+    border-radius: 0;
+    cursor: default;
+    transition: all 0.15s;
+}
+
+.mockup-nav.active {
+    color: #818cf8;
+    background: rgba(99,102,241,0.1);
+    border-right: 2px solid #6366f1;
+}
+
+.mockup-content {
+    flex: 1;
+    padding: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mockup-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.mockup-stat {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.mockup-stat-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f1f5f9;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.mockup-stat-label {
+    font-size: 10px;
+    color: #475569;
+}
+
+.mockup-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.mockup-booking {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.mockup-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.mockup-dot.green  { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+.mockup-dot.blue   { background: #38bdf8; box-shadow: 0 0 6px rgba(56,189,248,0.5); }
+.mockup-dot.purple { background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,0.5); }
+
+.mockup-booking-info {
+    flex: 1;
+}
+
+.mockup-booking-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #cbd5e1;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.mockup-booking-time {
+    font-size: 10.5px;
+    color: #475569;
+}
+
+.mockup-booking-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: #22c55e;
+    background: rgba(34,197,94,0.1);
+    padding: 3px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.mockup-booking-badge.pending {
+    color: #f59e0b;
+    background: rgba(245,158,11,0.1);
+}
+
+.mockup-embed-preview {
+    background: rgba(99,102,241,0.06);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: auto;
+}
+
+.mockup-embed-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #818cf8;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.mockup-embed-code {
+    font-family: monospace;
+    font-size: 10px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive product spotlight */
+@media (max-width: 1024px) {
+    .spotlight-grid {
+        gap: 48px;
+    }
+}
+
+@media (max-width: 900px) {
+    .spotlight-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .app-mockup-body {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spotlight-actions {
+        flex-direction: column;
+    }
+
+    .app-mockup-body {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .mockup-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 8px;
+    }
+
+    .mockup-logo {
+        width: 100%;
+        padding: 4px 8px 8px;
+        margin-bottom: 4px;
+        border-bottom: none;
+    }
+
+    .mockup-nav {
+        padding: 5px 10px;
+        font-size: 10px;
+        border-right: none !important;
+        border-radius: 6px;
+    }
+
+    .mockup-nav.active {
+        background: rgba(99,102,241,0.15);
+    }
+}
+
+/* === END Product Spotlight === */
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
