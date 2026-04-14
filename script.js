@@ -57,28 +57,64 @@ function initScrollReveal() {
     });
 }
 
+const W3F_KEY = '468a7128-e3f0-4901-9b0b-72bd80b2e7da';
+
 function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
+
+        const name    = form.name.value.trim();
+        const email   = form.email.value.trim();
+        const service = form.service?.value ?? '';
         const message = form.message.value.trim();
 
         if (!name || !email || !message) {
             showToast('Completá todos los campos requeridos.', 'error');
             return;
         }
-
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             showToast('Email inválido.', 'error');
             return;
         }
 
-        showToast('¡Mensaje enviado! Te contacto pronto.', 'success');
-        form.reset();
+        const submitBtn = form.querySelector('[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Enviando...';
+        submitBtn.disabled = true;
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: W3F_KEY,
+                    subject: `Nuevo contacto de ${name} — rodrantho.com`,
+                    from_name: 'rodrantho.com',
+                    name,
+                    email,
+                    service: service || 'No especificado',
+                    message,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                showToast('¡Mensaje enviado! Te contacto pronto.', 'success');
+                form.reset();
+            } else {
+                throw new Error(data.message ?? 'Error desconocido');
+            }
+        } catch (err) {
+            console.error('[contactForm]', err);
+            showToast('Error al enviar. Escribime a hola@rodrantho.com', 'error');
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
